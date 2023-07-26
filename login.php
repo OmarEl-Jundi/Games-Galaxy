@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($con, $q);
         if ($result === false) {
             die("Error executing the query: " . mysqli_error($con));
-        }else{
+        } else {
             $res = mysqli_num_rows($result);
         }
         if ($res == 1) { //the sign in is successful, matching is correct
@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
             session_regenerate_id();
 
             $_SESSION["user_id"] = $row['id'];
+            $_SESSION["user_role"] = $row['role'];
 
             header("location: index.php");
             exit();
@@ -56,7 +57,7 @@ if (isset($_POST['submit'])) {
             <p><A id="signupbtn" Href="signup.php" align="center"> Sign up </A></p>
         </form>
         <div align=center>
-            <a href="index.php">Go Back</a> <b>-    OR    -</b> <a href="signup.php">Sign Up</a>
+            <a href="index.php">Go Back</a> <b>- OR -</b> <a href="signup.php">Sign Up</a>
         </div>
     </div>
 </div>

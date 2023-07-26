@@ -170,13 +170,40 @@ function ready() {
 }
 
 function buyButtonClicked() {
-    alert("Your Order is Placed");
     var cartContent = document.getElementsByClassName("cart-content")[0];
-    while (cartContent.hasChildNodes()) {
-        cartContent.removeChild(cartContent.firstChild);
+    var gameIds = [];
+
+    // Extract all the game IDs from the cart
+    var cartBoxes = cartContent.getElementsByClassName("cart-box");
+    for (var i = 0; i < cartBoxes.length; i++) {
+        var cartBox = cartBoxes[i];
+        var gameId = cartBox.querySelector(".game-id").innerText;
+        gameIds.push(gameId);
     }
-    updateTotal();
+
+    // Create a data object to send in the AJAX request
+    var data = {
+        gameIds: gameIds
+    };
+
+    // Make an AJAX request to the PHP script
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "store_game_ids.php", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // Success! Show an alert to the user
+            alert("Your Games have been added to your library");
+            // Clear the cart and update total
+            while (cartContent.hasChildNodes()) {
+                cartContent.removeChild(cartContent.firstChild);
+            }
+            updateTotal();
+        }
+    };
+    xhr.send(JSON.stringify(data));
 }
+
 
 function quantityChanged(event) {
     var input = event.target;
@@ -197,12 +224,13 @@ function addCartClicked(event) {
     var button = event.target;
     var shopProducts = button.parentElement;
     var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
+    var id = shopProducts.getElementsByClassName("game-id")[0].innerText;
     var price = shopProducts.getElementsByClassName("price")[0].innerText;
     var productImg = shopProducts.getElementsByClassName("product-img")[0].src;
-    addProductToCart(title, price, productImg);
+    addProductToCart(title,id, price, productImg);
     updateTotal();
 
-    function addProductToCart(title, price, productImg) {
+    function addProductToCart(title,id, price, productImg) {
         var cartItems = document.getElementsByClassName("cart-content")[0];
         var cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
 
@@ -226,6 +254,7 @@ function addCartClicked(event) {
       <img src="${productImg}" alt="" class="cart-img" />
       <div class="detail-box">
         <div class="cart-product-title">${title}</div>
+        <div class="game-id">${id}</div>
         <div class="cart-price">${price}</div>
         <input type="number" value="1" class="cart-quantity" />
       </div>

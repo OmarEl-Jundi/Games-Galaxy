@@ -9,14 +9,14 @@
     <b id="welcome">Welcome Admin: <i>
             <?php
             require 'connection.php';
-            if($_SESSION['user_id']){
-            $query = "SELECT * FROM `User` WHERE id = {$_SESSION["user_id"]}";
-            $result = mysqli_query($con, $query);
-            $user = mysqli_fetch_array($result);
-            echo $user['username'];
-            echo "<p><span>Full Name: </span>" . $user['fname'] . " " . $user['lname']. "</p>";
-            echo " <p id='email-p'><span> Your Email: </span>" . $user['email'] . "</p>";
-            }else{
+            if ($_SESSION['user_id']) {
+                $query = "SELECT * FROM `User` WHERE id = {$_SESSION["user_id"]}";
+                $result = mysqli_query($con, $query);
+                $user = mysqli_fetch_array($result);
+                echo $user['username'];
+                echo "<p><span>Full Name: </span>" . $user['fname'] . " " . $user['lname'] . "</p>";
+                echo " <p id='email-p'><span> Your Email: </span>" . $user['email'] . "</p>";
+            } else {
                 header("Location:index.php");
             }
             ?>
@@ -30,13 +30,14 @@
 <p><a href="add-category.php">Add a new Category to the Database</a></p>
 <p><a href="update-game.php">Update Game Info</a></p>
 <p><a href="delete-game.php">Delete Game</a></p>
-<p><a href="index.php">Go back to Home</a></p>
+<p><a href="index.php">Go back</a></p>
 </body>
 <style>
     span {
         color: black;
     }
-    #email-p{
+
+    #email-p {
         margin-bottom: 0px;
     }
 </style>
