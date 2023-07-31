@@ -1,4 +1,10 @@
-<?php require "connection.php" ?>
+<?php
+require 'connection.php';
+session_start();
+if ($_SESSION["user_role"] != 1) {
+    header("location: index.php");
+}
+?>
 <form action="list-condition.php" method="post">
     ID: <input type="number" name="id">
     <br><br>
@@ -66,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_num_rows($res) == 0) {
             echo "No results found.";
         } else {
-            ?>
+?>
             <table border="1" width="50%" bgcolor="black" align="center">
                 <tr style="color: aliceblue">
                     <th>ID</th>
@@ -95,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 ?>
             </table>
-            <?php
+<?php
         }
     }
 }

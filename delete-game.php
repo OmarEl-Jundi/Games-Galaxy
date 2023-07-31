@@ -1,4 +1,10 @@
-<?php require 'connection.php';?>
+<?php
+require 'connection.php';
+session_start();
+if ($_SESSION["user_role"] != 1) {
+    header("location: index.php");
+}
+?>
 <h1>Delete Game</h1>
 <form method="post" action="">
     <p>
@@ -22,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "DELETE FROM `Games` WHERE id = " . $id;
     $res = mysqli_query($con, $query);
     echo "Delete Successful";
-
 }
 ?>
 <p><a href="list-games.php">Show all Games</a></p>

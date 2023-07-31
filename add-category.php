@@ -1,3 +1,10 @@
+<?php
+require 'connection.php';
+session_start();
+if ($_SESSION["user_role"] != 1) {
+    header("location: index.php");
+}
+?>
 <H1>Add a new Category to the Database</H1>
 <form method="post" action="" enctype="multipart/form-data">
     <p>Name: <input type="text" name="name"></p>
@@ -16,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($name)) {
         echo "Please Enter The Name";
-    }else if (empty($desc)) {
+    } else if (empty($desc)) {
         echo "Please add a description";
     } else {
         $query = "INSERT INTO `Category` (`name`, `description`) VALUES ('$name','$desc')";

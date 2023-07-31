@@ -1,4 +1,10 @@
-<?php require 'connection.php'; ?>
+<?php
+require 'connection.php';
+session_start();
+if ($_SESSION["user_role"] != 1) {
+    header("location: index.php");
+}
+?>
 <H1>Insert a new Game to the Database</H1>
 <form method="post" action="" enctype="multipart/form-data">
     <p>Name: <input type="text" name="name" required></p>
@@ -40,7 +46,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = mysqli_real_escape_string($con,$_POST['name']);
+    $name = mysqli_real_escape_string($con, $_POST['name']);
     $desc = mysqli_real_escape_string($con, $_POST['desc']);
     $price = $_POST['price'];
     $trailer = $_POST['trailer'];
@@ -52,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Please select a Developer";
     } else {
         $targetFile = ""; // Default value for image file path
-        if (isset($_FILES['img'])){
+        if (isset($_FILES['img'])) {
             $img = $_FILES['img']['name'];
             $imgTmp = $_FILES['img']['tmp_name']; // Temporary location of the uploaded file
             $targetDir = 'uploads/'; // Directory where you want to store uploaded images

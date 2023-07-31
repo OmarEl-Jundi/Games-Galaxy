@@ -17,7 +17,7 @@
   --shdw-color: hsl(0 4% 15% / 30%);
   --add-crate-color: orange;
   --price-color: firebrick;
-  --border-color: black;
+  --border-color: #9a0000;
 }
 #logo-img {
   width: 30px;
@@ -28,7 +28,9 @@ img {
 }
 body {
   color: var(--text-color);
-  background-color: var(--bg-color);
+  /* background-color: dimgray; */
+  /* background-image: url("uploads/Light_BG.jpg"); */
+  background: linear-gradient(to right, firebrick, rgb(24, 24, 24));
 }
 
 body.dark {
@@ -38,7 +40,8 @@ body.dark {
   --shdw-color: hsla(0, 0%, 82%, 0.3);
   --add-crate-color: #fff;
   --price-color: #fff;
-  --border-color: #9a0000;
+  --border-color: black;
+  background-image: url("uploads/Dark_BG.jpg");
 }
 .container {
   max-width: 1100px;
@@ -80,7 +83,7 @@ header {
   gap: 3px;
 }
 
-.icons > p:nth-child(1){
+.icons > p:nth-child(1) {
   padding-bottom: 4px;
 }
 
@@ -95,7 +98,7 @@ header {
   color: var(--add-crate-color);
 }
 
-.dash:hover{
+.dash:hover {
   color: var(--text-color);
   cursor: default;
 }
@@ -121,7 +124,7 @@ header {
   top: 0px;
 }
 
-#dark{
+#dark {
   position: static;
   top: 0px;
 }
@@ -140,6 +143,7 @@ header {
   background: var(--bg-color);
   box-shadow: -2px 0 4px var(--shdw-color);
   transition: 0.3s;
+  overflow: scroll;
 }
 .cart.active {
   right: 0;
@@ -186,6 +190,9 @@ header {
   color: var(--main-color);
   cursor: pointer;
 }
+.cart-remove:hover {
+  color: var(--text-color);
+}
 .total {
   display: flex;
   justify-content: flex-end;
@@ -222,10 +229,13 @@ header {
   cursor: pointer;
 }
 .section-title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
   text-align: center;
   margin-bottom: 1.5rem;
+  color: var(--add-crate-color);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--border-color);
 }
 .store {
   margin-top: 2rem;
@@ -238,6 +248,7 @@ header {
   justify-content: center;
 }
 .product-box {
+  border: black 10px solid;
   border-radius: 10% / 5%;
   position: relative;
   display: flex;
@@ -245,8 +256,9 @@ header {
   justify-content: space-between;
   padding: 5px;
   gap: 10px;
-  box-shadow: inset 0 0 2px var(--border-color);
+  box-shadow: inset 0 0 2px var(--shdw-color);
   width: 260px;
+  background-color: var(--bg-color);
 }
 
 .product-img {
@@ -373,12 +385,12 @@ span {
   font-weight: 600;
 }
 
-.dev-cat{
+.dev-cat {
   color: var(--price-color);
   font-weight: 800;
   font-size: 13px;
 }
-.cat-dev{
+.cat-dev {
   color: var(--text-color);
   font-weight: 600;
   font-size: 13px;
@@ -398,7 +410,7 @@ footer > div {
   flex-direction: column;
 }
 
-.game-id{
+.game-id {
   visibility: hidden;
   padding: 0;
   margin: 0;

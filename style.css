@@ -1,88 +1,128 @@
 /*----------------------------------------------
 CSS Settings For HTML Div ExactCenter
 ------------------------------------------------*/
-*{
-    font-family:Arial ;
+* {
+  font-family: Arial;
 }
 #main {
-    width: 960px;
-    margin: 50px auto;
+  width: 960px;
+  margin: 50px auto;
+}
+body {
+  background-image: url("uploads/Dark_BG.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+b {
+  color: firebrick;
+}
+label {
+  color: firebrick;
+}
+a {
+  color: olive;
+}
+
+p {
+  margin-top: 15px;
 }
 
 span {
-    color: red
+  color: red;
 }
 
 h2 {
-    background-color: #ffeded;
-    text-align: center;
-    border-radius: 10px 10px 0 0;
-    margin: -10px -40px;
-    padding: 15px
+  background-color: #ffeded;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  margin: -10px -40px;
+  padding: 15px;
 }
 
 hr {
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    margin: 10px -40px;
-    margin-bottom: 30px
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  margin: 10px -40px;
+  margin-bottom: 30px;
 }
 
 #login {
-    width: 300px;
-    float: left;
-    border-radius: 10px;
-    border: 2px solid #ccc;
-    padding: 10px 40px 25px;
-    margin-top: 70px
+  width: 300px;
+  float: left;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  padding: 10px 40px 25px;
+  margin-top: 70px;
+  background-color: rgb(19, 19, 19);
 }
 
-input{
-    width: 99.5%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    padding-left: 5px;
-    font-size: 16px;
+input {
+  width: 99.5%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  padding-left: 5px;
+  font-size: 16px;
 }
 
-input[type=submit] {
-    width: 100%;
-    background-color: #de1f1f;
-    color: #fff;
-    border: 2px solid #de1f1f;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 35px;
-    margin-bottom: 15px;
+input[type="submit"] {
+  width: 100%;
+  background-color: #de1f1f;
+  color: #fff;
+  border: 2px solid #de1f1f;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 35px;
+  margin-bottom: 15px;
 }
 
 #profile {
-    padding: 50px;
-    border: 1px dashed grey;
-    font-size: 20px;
-    background-color: #DCE6F7FF
+  padding: 50px;
+  border: 1px dashed grey;
+  font-size: 20px;
+  background-color: rgb(255, 255, 255);
 }
 
 #logout {
-    float: right;
-    padding: 5px;
-    border: dashed 1px gray
+  float: right;
+  padding: 5px;
+  border: dashed 1px gray;
 }
 
 #signupbtn {
-    text-decoration: none;
-    border: 1px solid;
-    padding: 5px;
-    color: white;
-    border-radius: 11px;
-    background: rgb(54, 50, 50);
+  text-decoration: none;
+  border: 1px solid;
+  padding: 5px;
+  color: white;
+  border-radius: 11px;
+  background: rgb(54, 50, 50);
 }
 
 i {
-    color: #6495ed
+  color: #6495ed;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
+  margin-top: 5px;
+  color: #171427;
+}
+#login-bottom {
+  margin-top: 20px;
+}
+#login-bottom > a {
+  color: hsla(0, 0%, 82%, 0.3);
+}
+#login-bottom > a:hover {
+  color: firebrick;
+}
+
+.admin-links {
+  color: firebrick;
+  font-size: 20px;
+  font-weight: bolder;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: black;
+  background-color: black;
+  padding: 5px 10px;
 }
