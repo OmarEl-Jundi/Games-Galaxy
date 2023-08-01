@@ -1,3 +1,9 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="adminstyle.css">
+</head>
 <?php
 require 'connection.php';
 session_start();

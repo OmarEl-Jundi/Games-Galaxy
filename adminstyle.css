@@ -1,0 +1,7 @@
+a {
+  color: firebrick;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: black;
+  background-color: black;
+  padding: 5px 10px;
+}

@@ -5,6 +5,12 @@ if ($_SESSION["user_role"] != 1) {
     header("location: index.php");
 }
 ?>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="adminstyle.css">
+</head>
 <form action="list-condition.php" method="post">
     ID: <input type="number" name="id">
     <br><br>
@@ -37,7 +43,7 @@ if ($_SESSION["user_role"] != 1) {
             ?>
         </select>
     </p>
-    <input type="submit" value="search">
+    <input id="search" type="submit" value="search">
 </form>
 <p><a href="list-games.php">Show all Games</a></p>
 <p><a href="admin-home.php">Go Back to Main Menu</a></p>
@@ -106,3 +112,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+</html>

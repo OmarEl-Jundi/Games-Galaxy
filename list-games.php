@@ -1,3 +1,9 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="adminstyle.css">
+</head>
 <?php
 require 'connection.php';
 session_start();
@@ -40,3 +46,8 @@ if ($_SESSION["user_role"] != 1) {
     mysqli_close($con);
     ?>
 </table>
+<style>
+    table {
+        margin-left: 350px;
+    }
+</style>
