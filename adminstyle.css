@@ -4,4 +4,5 @@ a {
   -webkit-text-stroke-color: black;
   background-color: black;
   padding: 5px 10px;
+  margin: 10px;
 }

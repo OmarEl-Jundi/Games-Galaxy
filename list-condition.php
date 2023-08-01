@@ -43,7 +43,7 @@ if ($_SESSION["user_role"] != 1) {
             ?>
         </select>
     </p>
-    <input id="search" type="submit" value="search">
+    <input id="search" type="button" value="search">
 </form>
 <p><a href="list-games.php">Show all Games</a></p>
 <p><a href="admin-home.php">Go Back to Main Menu</a></p>
@@ -112,5 +112,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<style>
+    #search {
+        position: relative;
+        left: 0;
+        margin: 10px;
+        background-color: black;
+        color: aliceblue;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    #search:hover {
+        background-color: #800000;
+    }
+</style>
 
 </html>
