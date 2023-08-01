@@ -178,6 +178,9 @@ header {
 }
 .cart-price {
   font-weight: 500;
+  border: 1px black solid;
+  padding: 4px;
+  width: fit-content;
 }
 .cart-quantity {
   border: 1px solid var(--text-color);
