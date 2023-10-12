@@ -1,3 +1,3 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'game-store');
+$con = mysqli_connect('localhost', 'root', '', 'GamesGalaxy');
 ?>
