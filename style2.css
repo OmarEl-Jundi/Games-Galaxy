@@ -34,14 +34,15 @@ body {
 }
 
 body.dark {
-  --main-color: #4e0303;
+  --main-color: #350202;
   --text-color: #fd4646;
   --bg-color: #161616;
   --shdw-color: hsla(0, 0%, 82%, 0.3);
   --add-crate-color: #fff;
   --price-color: #fff;
   --border-color: black;
-  background-image: url("uploads/Dark_BG.jpg");
+  /* background-image: url("uploads/Dark_BG.jpg"); */
+  background: linear-gradient(to right, #4e0303, rgb(24, 24, 24));
 }
 .container {
   max-width: 1100px;
