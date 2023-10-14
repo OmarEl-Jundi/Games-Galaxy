@@ -26,10 +26,9 @@
 img {
   width: 100%;
 }
+
 body {
   color: var(--text-color);
-  /* background-color: dimgray; */
-  /* background-image: url("uploads/Light_BG.jpg"); */
   background: linear-gradient(to right, firebrick, rgb(24, 24, 24));
 }
 
@@ -41,7 +40,6 @@ body.dark {
   --add-crate-color: #fff;
   --price-color: #fff;
   --border-color: black;
-  /* background-image: url("uploads/Dark_BG.jpg"); */
   background: linear-gradient(to right, #4e0303, rgb(24, 24, 24));
 }
 .container {
@@ -102,27 +100,6 @@ header {
 .dash:hover {
   color: var(--text-color);
   cursor: default;
-}
-
-#search {
-  position: fixed;
-  margin-right: 10px;
-  padding: 0 5px 0 5px;
-  background-color: transparent;
-  color: var(--text-color);
-  top: -100%;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid black;
-}
-
-#search::placeholder {
-  color: black;
-}
-
-#search.active {
-  position: static;
-  top: 0px;
 }
 
 #dark {
@@ -340,7 +317,7 @@ header {
 
 .add-cart {
   position: absolute;
-  border-radius: 25% 0% 40% 0%;
+  border-radius: 25% 0% 25% 0%;
   bottom: 0px;
   right: 0px;
   background: var(--text-color);

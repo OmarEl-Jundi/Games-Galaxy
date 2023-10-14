@@ -24,6 +24,8 @@ if (isset($_SESSION["user_id"])) {
     <link rel="Website Icon" href="Images/Logo.png" />
     <!-- Link to Stylesheet -->
     <link rel="stylesheet" href="style2.css" />
+    <!-- Link to Presets Stylesheet -->
+    <link rel="stylesheet" href="style-presets.css" />
     <!-- Link to Box Icons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" />
     <script src="script.js"></script>
@@ -48,10 +50,22 @@ if (isset($_SESSION["user_id"])) {
                 ?>
             </div>
             <div class="icons">
-                <i class="bx bx-search-alt-2 nav-icons" id="search-icon"></i>
-                <input type="search" placeholder="Search" id="search" />
-                <p>Dark Mode:</p>
-                <i class="bx bx-toggle-left nav-icons" id="dark"></i>
+                <div class="container-search nav-icons">
+                    <input id="search" type="text" name="text" class="input" required="" placeholder="Type to search...">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                            <title>Search</title>
+                            <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path>
+                        </svg>
+                    </div>
+                </div>
+                <label class="ui-switch">
+                    <input type="checkbox" id="dark">
+                    <div class="slider">
+                        <div class="circle"></div>
+                    </div>
+                </label>
                 <i class="bx bx-cart nav-icons" id="cart-icon"></i>
                 <a href="#contact-us" id="contact">Contact Us</a>
                 <a class="dash">-</a>

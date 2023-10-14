@@ -10,12 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
         game.price.textContent.toLowerCase().includes(value);
       game.box.classList.toggle("hide", !isVisible);
     });
-
-    if (searchInput.value.length) {
-      document.querySelector("#search-icon").classList.remove("bx-x");
-    } else {
-      document.querySelector("#search-icon").classList.add("bx-x");
-    }
   });
 
   games = Array.from(document.querySelectorAll(".product-box")).map((box) => {
@@ -23,23 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const price = box.querySelector(".price");
     return { title, price, box };
   });
-
-  searchInput.addEventListener("search", function (event) {
-    document.querySelector("#search").classList.remove("active");
-    document.querySelector("#search-icon").classList.remove("bx-x");
-    document.querySelector("#search-icon").classList.add("bx-search-alt-2");
-    isSearching = false;
-  });
 });
-
-let isSearching = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   let cartIcon = document.querySelector("#cart-icon");
   let cart = document.querySelector(".cart");
   let closeCart = document.querySelector("#close-cart");
   let dark = document.querySelector("#dark");
-  let toggleSearch = document.querySelector("#search-icon");
   let gameDesc = document.querySelectorAll(".product-description");
   let gameBox = document.querySelectorAll(".product-box");
 
@@ -66,29 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
   dark.onclick = () => {
     if (isDark === false) {
       document.querySelector("body").classList.add("dark");
-      dark.classList.remove("bx-toggle-left");
-      dark.classList.add("bxs-toggle-right");
       isDark = true;
     } else {
       document.querySelector("body").classList.remove("dark");
-      dark.classList.remove("bxs-toggle-right");
-      dark.classList.add("bx-toggle-left");
       isDark = false;
-    }
-  };
-
-  toggleSearch.onclick = () => {
-    if (!isSearching) {
-      document.querySelector("#search").classList.add("active");
-      document.getElementById("search").focus();
-      toggleSearch.classList.remove("bx-search-alt-2");
-      toggleSearch.classList.add("bx-x");
-      isSearching = true;
-    } else {
-      document.querySelector("#search").classList.remove("active");
-      toggleSearch.classList.remove("bx-x");
-      toggleSearch.classList.add("bx-search-alt-2");
-      isSearching = false;
     }
   };
 
