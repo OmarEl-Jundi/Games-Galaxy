@@ -63,7 +63,7 @@ input {
   font-size: 16px;
 }
 
-input[type="submit"] {
+/* input[type="submit"] {
   width: 100%;
   background-color: #de1f1f;
   color: #fff;
@@ -74,7 +74,7 @@ input[type="submit"] {
   border-radius: 5px;
   margin-top: 35px;
   margin-bottom: 15px;
-}
+} */
 
 #profile {
   padding: 50px;
