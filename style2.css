@@ -102,6 +102,11 @@ header {
   cursor: default;
 }
 
+.dash,
+#contact {
+  margin-top: 3%;
+}
+
 #dark {
   position: static;
   top: 0px;

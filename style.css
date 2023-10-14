@@ -7,11 +7,10 @@ CSS Settings For HTML Div ExactCenter
 #main {
   width: 960px;
   margin: 50px auto;
+  margin-top: 10%;
 }
 body {
-  background-image: url("uploads/Dark_BG.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(to right, firebrick, rgb(24, 24, 24));
 }
 b {
   color: firebrick;

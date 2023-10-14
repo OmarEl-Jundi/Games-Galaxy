@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let cartIcon = document.querySelector("#cart-icon");
   let cart = document.querySelector(".cart");
   let closeCart = document.querySelector("#close-cart");
-  let dark = document.querySelector("#dark");
+  let dark = document.querySelector("#theme");
   let gameDesc = document.querySelectorAll(".product-description");
   let gameBox = document.querySelectorAll(".product-box");
 
