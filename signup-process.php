@@ -11,8 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $query = "INSERT INTO `User`(`username`, `email`, `password`, `date_of_birth`, `fname`, `lname`, `role`) VALUES ( '$username', '$email', '$password', '$dob', '$fname', '$lname' , '2')";
     if (mysqli_query($con, $query)) {
-        echo "Account successfully created";
-        header("Location: signup-success.html");
+        echo "Account successfully created you can now login";
         exit();
     } else {
         echo "Error executing query: " . mysqli_error($con);

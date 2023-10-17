@@ -76,9 +76,7 @@ if (isset($_SESSION["user_id"])) {
                 if (isset($user)) {
                     echo '<a href="logout.php" id="contact">Log Out</a>';
                 } else {
-                    echo '<a href="login.php" id="contact">Log in</a>';
-                    echo '<a class="dash">-</a>';
-                    echo '<a href="signup.php" id="contact">Sign Up</a>';
+                    echo '<a href="login.php" id="contact">Login/Signup</a>';
                 }
                 ?>
             </div>

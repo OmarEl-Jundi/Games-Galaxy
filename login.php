@@ -107,6 +107,7 @@ if (isset($_POST['signin'])) {
                             <input type="date" placeholder="Date of Birth" id="dob" name="dob" class="flip-card__input">
                             <div class="error-container">
                                 <div id="error-message" class="error"></div>
+                                <div id="ajaxDiv"></div>
                             </div>
                             <button class="flip-card__btn" onclick="signup()">Sign Up</button>
 
@@ -118,7 +119,8 @@ if (isset($_POST['signin'])) {
 
 </html>
 <style>
-    .error {
+    .error,
+    .ajaxDiv {
         position: static;
         top: 100%;
         /* Adjust this value as needed to control the vertical position */
@@ -137,6 +139,15 @@ if (isset($_POST['signin'])) {
     }
 </style>
 <script>
+    document.getElementById('username').addEventListener("input", (e) => {
+        checkUsernameAvailability();
+    });
+    document.getElementById('email').addEventListener("input", (e) => {
+        checkEmailAvailability();
+    });
+    // document.getElementById('email').addEventListener('blur', validateEmail());
+    // document.getElementById('email').addEventListener('input', checkEmailAvailability());
+
     function validateEmail(email) {
         // Regular expression to check for a valid email format
         var emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
@@ -146,21 +157,16 @@ if (isset($_POST['signin'])) {
     function checkUsernameAvailability() {
         var errorDiv = document.getElementById('error-message');
         var username = document.getElementById('username').value;
-
-        // Check if the username is not empty
-        if (username === "") {
-            errorDiv.innerHTML = "Please enter a username";
-            return;
-        }
-
         var ajaxRequest = new XMLHttpRequest();
         ajaxRequest.onreadystatechange = function() {
             if (ajaxRequest.readyState == 4) {
                 var ajaxDisplay = document.getElementById('ajaxDiv');
                 if (ajaxRequest.responseText === "available") {
-                    errorDiv.innerHTML = "Username is available.";
+                    errorDiv.innerHTML = "Username available";
                 } else if (ajaxRequest.responseText === "taken") {
                     errorDiv.innerHTML = "Username is already taken. Please choose another.";
+                } else if (ajaxRequest.responseText === "unavailable") {
+                    errorDiv.innerHTML = "Username can't be empty";
                 }
             }
         }
@@ -198,7 +204,7 @@ if (isset($_POST['signin'])) {
         ajaxRequest.onreadystatechange = function() {
             if (ajaxRequest.readyState == 4) {
                 var ajaxDisplay = document.getElementById('ajaxDiv');
-                ajaxDisplay.innerHTML = ajaxRequest.responseText;
+                errorDiv.innerHTML = ajaxRequest.responseText;
             }
         }
 
@@ -214,37 +220,23 @@ if (isset($_POST['signin'])) {
 
         if (fname === "") {
             errorDiv.innerHTML = "Please enter your first name";
-            return;
         } else if (lname === "") {
             errorDiv.innerHTML = "Please enter your last name";
-            return;
         } else if (username === "") {
             errorDiv.innerHTML = "Please enter a username";
-            return;
-        } else if (username !== "") {
-            checkUsernameAvailability();
         } else if (email === "") {
             errorDiv.innerHTML = "Please enter your email";
-            return;
         } else if (!validateEmail(email)) {
             errorDiv.innerHTML = "Please enter a valid email address";
-            return;
-        } else if (validateEmail(email)) {
-            checkEmailAvailability();
         } else if (password === "") {
             errorDiv.innerHTML = "Please enter a password";
-            return;
         } else if (re_password === "") {
             errorDiv.innerHTML = "Please re-enter your password";
-            return;
         } else if (password !== re_password) {
             errorDiv.innerHTML = "Passwords do not match";
-            return;
         } else if (dob === "") {
             errorDiv.innerHTML = "Please enter your date of birth";
-            return;
         } else {
-            errorDiv.innerHTML = "Sign Up successful now you can Login";
             var queryString = "?fname=" + fname + "&lname=" + lname +
                 "&username=" + username + "&email=" + email +
                 "&password=" + password +
@@ -252,5 +244,6 @@ if (isset($_POST['signin'])) {
             ajaxRequest.open("GET", "signup-process.php" + queryString, true);
             ajaxRequest.send(null);
         }
+
     }
 </script>
