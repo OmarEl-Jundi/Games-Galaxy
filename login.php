@@ -109,8 +109,9 @@ if (isset($_POST['signin'])) {
                                 <div id="error-message" class="error"></div>
                                 <div id="ajaxDiv"></div>
                             </div>
-                            <button class="flip-card__btn" onclick="signup()">Sign Up</button>
-
+                            <div>
+                                <button class="flip-card__btn" onclick="signup()">Sign Up</button>
+                            </div>
                         </div>
                     </div>
                 </label>
