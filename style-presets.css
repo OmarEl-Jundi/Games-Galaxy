@@ -321,3 +321,12 @@ div .flip-card__input {
   color: var(--font-color);
   cursor: pointer;
 }
+
+.flip-card__inner *:not(div) {
+  pointer-events: auto;
+}
+
+.flip-card__inner div,
+.flip-card__inner form {
+  pointer-events: none;
+}
