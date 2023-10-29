@@ -40,16 +40,12 @@ if (isset($_POST['signin'])) {
 
 <head>
     <title>Login</title>
-    <!-- <link href="style2.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" /> -->
     <link href="style-presets.css" rel="stylesheet" type="text/css">
 </head>
 <header>
     <div class="nav container">
         <div class="logo">
-            <!-- <img id="logo-img" src="uploads/Logo.png" alt="" /> -->
-            <a href="#" class="">Games Galaxy</a>
+            <a href="index.php" class="">Games Galaxy</a>
             <?php
             if (isset($user)) {
                 if ($user['role'] == 1) {
@@ -66,10 +62,6 @@ if (isset($_POST['signin'])) {
             <?php
             if (isset($user)) {
                 echo '<a href="logout.php" id="contact">Log Out</a>';
-            } else {
-                echo '<a href="login.php" id="contact">Log in</a>';
-                echo '<a class="dash">-</a>';
-                echo '<a href="signup.php" id="contact">Sign Up</a>';
             }
             ?>
         </div>

@@ -13,6 +13,7 @@ if ($_SESSION["user_role"] != 1) {
 ?>
 <h1 align="center">List of Games</h1>
 <p align="center"><a href="admin-home.php">Go Back to Main Menu</a></p>
+<div id="scrollToTopBtn" class="scroll-to-top-button" onclick="scrollToTop()">&#8679; Scroll to Top</div>
 <table border="1" width="50%" bgcolor="black" align="center">
     <tr style="color: aliceblue">
         <th>ID</th>
@@ -50,4 +51,43 @@ if ($_SESSION["user_role"] != 1) {
     table {
         margin-left: 350px;
     }
+
+    /* Style for the scroll to top button */
+    .scroll-to-top-button {
+        display: none;
+        /* Initially, hide the button */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: firebrick;
+        /* Button background color */
+        color: #fff;
+        /* Button text color */
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
 </style>
+
+<script>
+    // Function to check the scroll position and show/hide the button
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("scrollToTopBtn").style.display = "block";
+        } else {
+            document.getElementById("scrollToTopBtn").style.display = "none";
+        }
+    }
+
+    // Function to scroll back to the top when the button is clicked
+    function scrollToTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    }
+</script>

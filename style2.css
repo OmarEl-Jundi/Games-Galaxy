@@ -20,9 +20,26 @@
   --border-color: #9a0000;
 }
 #logo-img {
-  width: 30px;
+  width: 50px;
   margin-right: 10px;
+  border-radius: 10px;
 }
+
+#logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  margin-top: 2%;
+}
+
 img {
   width: 100%;
 }
@@ -75,6 +92,10 @@ header {
   justify-content: space-between;
   width: auto;
   gap: 13px;
+}
+
+.logo a {
+  margin-top: 3%;
 }
 
 .icons {
@@ -234,6 +255,15 @@ header {
   text-align: center;
   justify-content: center;
 }
+
+.product-box a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 .product-box {
   border: black 10px solid;
   border-radius: 10% / 5%;
@@ -258,15 +288,18 @@ header {
   box-shadow: -2px 0 4px var(--shdw-color);
   border-radius: 10% / 5%;
 }
-.product-box > div:nth-child(1) {
+.product-box__inner > div:nth-child(1) {
   overflow: hidden;
   border-radius: 10% / 5%;
 }
-.product-box > div:nth-child(2) {
+.product-box__inner > div:nth-child(2) {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5px;
+}
+.product-box__inner:hover {
+  color: var(--text-color);
 }
 .product-box:hover .product-img {
   transform: scale(1.1);
@@ -347,10 +380,6 @@ a {
   font-weight: 600;
 }
 
-.exclusive {
-  font-size: x-small;
-  color: red;
-}
 footer {
   background: var(--main-color);
   box-shadow: 1px 0px 4px var(--shdw-color);
@@ -407,6 +436,21 @@ footer > div {
 
 #cart-icon.animate {
   animation: cartAdded 1s ease-in-out;
+}
+
+/* Style for the Go Back button in the game-description */
+.game-description .go-back-button {
+  background: var(--main-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.game-description .go-back-button:hover {
+  background: var(--add-crate-color);
 }
 
 @keyframes cartAdded {

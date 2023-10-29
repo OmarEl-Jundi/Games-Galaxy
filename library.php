@@ -66,10 +66,12 @@ session_start();
             $cat = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM `Category` where id = " . $games['category']));
             echo '
         <div class="product-box">
+        <a class="product-box__inner" href="game-description.php?id=' . $games['id'] . '">
           <div>
             <img src="' . $games['image'] . '" class="product-img" />
           </div>
           <h2 class="product-title">' . $games['name'] . '</h2>
+          </a>
           <p class="game-id">' . $games['id'] . '</p>
           <p class="dev-cat">Developer: <span class="cat-dev">' . $dev['name'] . '</span> </p>
           <p class="dev-cat">Category: <span class="cat-dev">' . $cat['name'] . '</span> </p>

@@ -32,12 +32,13 @@ if (isset($_SESSION["user_id"])) {
 </head>
 
 <body>
+
     <header>
         <div class="nav container">
 
             <div class="logo">
                 <img id="logo-img" src="uploads/Logo.png" alt="" />
-                <a href="#" class="">Games Galaxy</a>
+                <p id="logo-text" style="cursor:default;">Games Galaxy</p>
                 <?php
                 if (isset($user)) {
                     if ($user['role'] == 1) {
@@ -108,10 +109,12 @@ if (isset($_SESSION["user_id"])) {
                 $cat = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM `Category` where id = " . $games['category']));
                 echo '
         <div class="product-box">
+        <a class="product-box__inner" href="game-description.php?id=' . $games['id'] . '">
           <div>
             <img src="' . $games['image'] . '" class="product-img" />
           </div>
           <h2 class="product-title">' . $games['name'] . '</h2>
+          </a>    
           <p class="game-id">' . $games['id'] . '</p>
           <p class="dev-cat">Developer: <span class="cat-dev">' . $dev['name'] . '</span> </p>
           <p class="dev-cat">Category: <span class="cat-dev">' . $cat['name'] . '</span> </p>
@@ -123,29 +126,13 @@ if (isset($_SESSION["user_id"])) {
                 }
                 echo '</span>
           <i class="bx bxs-cart-add add-cart" id="cart-icon"></i>
-        </div>';
-            }
-            $gamesResult = mysqli_query($con, $gamesQuery);
-            while ($games = mysqli_fetch_array($gamesResult)) {
-                echo '
-    <div class="product-description">
-          <i class="bx bx-x close-desc"></i>
-          <p class="desc-title">' . $games['name'] . '</p>
-          <iframe
-            width="560"
-            height="315"
-            src="' . $games['trailer'] . '"
-          >
-          </iframe>
-          <p>
-            <span> Description: </span> <br />
-            ' . $games['description'] . '
-          </p>
-        </div>';
+            </div>
+          ';
             }
             ?>
     </section>
 </body>
+<div id="scrollToTopBtn" class="scroll-to-top-button" onclick="scrollToTop()">&#8679; Scroll to Top</div>
 <footer id="contact-us">
     <div>
         <div>
@@ -163,3 +150,42 @@ if (isset($_SESSION["user_id"])) {
 <script src="script.js"></script>
 
 </html>
+<style>
+    /* Style for the scroll to top button */
+    .scroll-to-top-button {
+        display: none;
+        /* Initially, hide the button */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: firebrick;
+        /* Button background color */
+        color: #fff;
+        /* Button text color */
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+<script>
+    // Function to check the scroll position and show/hide the button
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("scrollToTopBtn").style.display = "block";
+        } else {
+            document.getElementById("scrollToTopBtn").style.display = "none";
+        }
+    }
+
+    // Function to scroll back to the top when the button is clicked
+    function scrollToTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    }
+</script>
